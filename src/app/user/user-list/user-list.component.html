@@ -1,0 +1,9 @@
+<button (click)="getUsers()">Mostrar Lista Usuarios</button>
+
+<ul>
+    <li *ngFor="let user of usuarios">
+      {{ user.nombre }} - {{ user.email }}
+      <!-- <button (click)="updateUser(user.uid)">Actualizar</button> -->
+      <button (click)="deleteUser(user.uid)">Eliminar</button>
+    </li>
+  </ul>
