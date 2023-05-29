@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Usuario } from './interface';
+import { Usuario, UsuarioElement } from './interface';
 
 @Injectable({
   providedIn: 'root'
@@ -39,10 +39,10 @@ export class ApiService {
   }
 
   // Ejemplo de petición PUT para actualizar un usuario
-  updateUser(userId: string, user: any): Observable<any> {
+  updateUser(userId: string, user: any): Observable<Usuario> {
     const url = this.baseUrl + `usuarios/${userId}`;
     const headers = this.getHeaders();
-    return this.http.put(url, user, { headers });
+    return this.http.put<Usuario>(url, user, { headers });
   }
 
   // Ejemplo de petición DELETE para eliminar un usuario
@@ -52,6 +52,12 @@ export class ApiService {
     return this.http.delete<Usuario>(url, { headers });
   }
 
+
+  getUser(userId: string): Observable<UsuarioElement> {
+    const url = this.baseUrl + `usuarios/${userId}`;
+    const headers = this.getHeaders();
+    return this.http.get<UsuarioElement>(url, { headers });
+  }
 
 
 

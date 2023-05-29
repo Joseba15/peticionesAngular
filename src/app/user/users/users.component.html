@@ -5,7 +5,7 @@
 <ul>
   <li *ngFor="let user of users">
     {{ user.nombre }} - {{ user.email }}
-    <button (click)="updateUser(user.uid)">Actualizar</button>
+    <button [routerLink]="['/usuario/detail',user.uid]" >Actualizar</button>
     <button (click)="deleteUser(user.uid)">Eliminar</button>
   </li>
 </ul>

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { UsersComponent } from './users/users.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,11 +15,15 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     UserDetailComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule
   ],
   exports:[
     UsersComponent,
-    UserListComponent
+    UserListComponent,
+    UserDetailComponent
   ]
 })
 export class UserModule { }
